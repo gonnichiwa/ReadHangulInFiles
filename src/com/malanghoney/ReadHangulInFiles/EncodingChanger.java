@@ -7,7 +7,7 @@ class EncodingChanger {
 	private static final String UTF8_FORMAT = "%04X";
 
 	// UNICODE 변환(int) FROM 문자열
-	int[] toUnicodesFromString(String targetStr) {
+	int[] getUnicodesFromString(String targetStr) {
 		char[] strArr = getCharsFromString(targetStr);
 		return getIntArrFromChars(strArr);
 	}
@@ -38,7 +38,7 @@ class EncodingChanger {
 	}
 
 	// UTF8문자열 변환 FROM 문자열
-	String toStringFromUTF8Code(String targetStr){
+	String getStringsFromUTF8Code(String targetStr){
 		StringBuilder sb = new StringBuilder();
 		char[] strArr = new char[targetStr.length()];
 		targetStr.getChars(0,targetStr.length(),strArr,0);
@@ -50,7 +50,7 @@ class EncodingChanger {
 	}
 
 	// UTF-8 byte 변환 FROM 문자열
-	byte[] toByteFromString(String targetStr) throws UnsupportedEncodingException {
+	byte[] getBytesFromString(String targetStr) throws UnsupportedEncodingException {
 //		return targetStr.getBytes(); equal with UTF8
 		return targetStr.getBytes("UTF-8");
 	}
