@@ -7,19 +7,25 @@ class EncodingChanger {
 	private static final String UTF8_FORMAT = "%04X";
 
 	// UNICODE 변환(int) FROM 문자열
-	public int[] toUnicodesFromString(String targetStr) {
+	int[] toUnicodesFromString(String targetStr) {
 		int length = targetStr.length();
-		// TODO : char배열 변환
-		char[] strArr = new char[length];
-		targetStr.getChars(0,length,strArr,0);
+		char[] strArr = getCharsFromString(targetStr);
+		return getIntArrFromChars(strArr);
+	}
 
-		// TODO : 한글자씩 돌면서 int 캐스팅 -> int 배열 집어넣음
-		int[] charIntArr = new int[length];
-		for(int i=0; i< length; i++) {
-			charIntArr[i] = (int) strArr[i];
+	private char[] getCharsFromString(String targetStr){
+		int strLength = targetStr.length();
+		char[] cArr = new char[strLength];
+		targetStr.getChars(0,strLength,cArr,0);
+		return cArr;
+	}
+
+	private int[] getIntArrFromChars(char[] chars){
+		int[] iArr = new int[chars.length];
+		for (int i=0; i< chars.length; i++){
+			iArr[i] = (int) chars[i];
 		}
-
-		return charIntArr;
+		return iArr;
 	}
 
 	// 콘솔 출력 (UTF8)
