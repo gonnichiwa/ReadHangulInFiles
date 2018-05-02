@@ -8,7 +8,6 @@ class EncodingChanger {
 
 	// UNICODE 변환(int) FROM 문자열
 	int[] toUnicodesFromString(String targetStr) {
-		int length = targetStr.length();
 		char[] strArr = getCharsFromString(targetStr);
 		return getIntArrFromChars(strArr);
 	}
